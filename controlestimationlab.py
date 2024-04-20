@@ -84,7 +84,7 @@ controller = StateFeedbackController(K)
 state_estimates = []
 
 # Kalman Filter
-for i in range(30):
+for i in range(100):
     # Time update
     u = controller.control_input(x)  # Get the control input
     x, sigma = time_update(x, sigma, tau, u)  # Apply control input to time update
@@ -148,9 +148,9 @@ for i in range(30):
     x, sigma = time_update_2(x, sigma, tau)  
 
     # Simulate scenarios
-    if i == 10:  # At time step 10, simulate scenario (i)
+    if i == 5:  # At time step 10, simulate scenario (i)
         x = scenario_i(x)
-    elif i == 15:  # At time step 15, simulate scenario (ii)
+    elif i >= 10 and i < 20:  # At time step 15 to 20, simulate scenario (ii)
         y = scenario_ii(y)
     elif i >= 20:  # From time step 20 onwards, simulate scenarios (iii) and (iv)
         x = scenario_iii(x, i)
