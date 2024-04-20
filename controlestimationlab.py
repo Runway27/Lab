@@ -125,11 +125,11 @@ def scenario_ii(y):
     y[0] = None  # GNSS sensor fails to provide altitude measurement
     return y
 
-# Scenario (iii): The battery drains gradually, so the value of α1 decreases slowly
+# Scenario (iii): The battery drains gradually, so the value of Alpha 1 decreases slowly
 def scenario_iii(x, i):
     i_old=0
     if i_old != i:
-        x[3] -= 0.01  # Gradual decrease in α1 due to battery drain
+        x[3] -= 0.01  # Gradual decrease in Alpha 1 due to battery drain
         i_old =i
     return x
 
